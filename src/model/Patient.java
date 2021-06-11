@@ -11,10 +11,12 @@ public class Patient extends Person {
     private String typeRoom;
     private int idRoom;
 
-    public Patient(){
+    public Patient() {
     }
 
-    public Patient(String diseases, String status, double height, double weight, int daysInHospital, String typeRoom, int idRoom) {
+
+    public Patient(String name, int age, String address, String gender, String phone, String diseases, String status, double height, double weight, int daysInHospital, String typeRoom, int idRoom) {
+        super(name, age, address, gender, phone);
         this.diseases = diseases;
         this.status = status;
         this.height = height;
@@ -24,8 +26,8 @@ public class Patient extends Person {
         this.idRoom = idRoom;
     }
 
-    public Patient(String name, int age, String address, boolean gender, String phone, String diseases, String status, double height, double weight, int daysInHospital, String typeRoom, int idRoom) {
-        super(name, age, address, gender, phone);
+    public Patient(Person person, String diseases, String status, double height, double weight, int daysInHospital, String typeRoom, int idRoom) {
+        super(person.getName(), person.getAge(), person.getAddress(), person.getGender(), person.getPhone());
         this.diseases = diseases;
         this.status = status;
         this.height = height;
@@ -93,14 +95,19 @@ public class Patient extends Person {
 
     @Override
     public String toString() {
-        return "model.Patient{" +
-                "diseases='" + diseases + '\'' +
-                ", status='" + status + '\'' +
-                ", height=" + height +
-                ", weight=" + weight +
-                ", daysInHospital=" + daysInHospital +
-                ", typeRoom='" + typeRoom + '\'' +
-                ", idRoom=" + idRoom +
+        return "Bệnh nhân{" +
+                "Tên='" + super.getName() + '\'' +
+                ", Tuổi=" + super.getAge() +
+                ", Địa chỉ='" + super.getAddress() + '\'' +
+                ", Giới tính=" + super.getGender() +
+                ", Số điện thoại='" + super.getPhone() + '\'' + "\n" +
+                " Bệnh tật='" + diseases + '\'' +
+                ", Trạng thái='" + status + '\'' +
+                ", Chiều cao='" + height + '\'' +
+                ", Cân nặng='" + weight + '\'' + "\n" +
+                " Số ngày nhập viện='" + daysInHospital + '\'' +
+                ", Loại phòng='" + typeRoom + '\'' +
+                ", Số phòng='" + idRoom + '\'' +
                 '}';
     }
 }

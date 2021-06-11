@@ -4,13 +4,13 @@ public class Person {
     private String name;
     private int age;
     private String address;
-    private boolean gender;
+    private String gender;
     private String phone;
 
     public Person() {
     }
 
-    public Person(String name, int age, String address, boolean gender, String phone) {
+    public Person(String name, int age, String address, String gender, String phone) {
         this.name = name;
         this.age = age;
         this.address = address;
@@ -42,11 +42,11 @@ public class Person {
         this.address = address;
     }
 
-    public boolean isGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(boolean gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -58,9 +58,10 @@ public class Person {
         this.phone = phone;
     }
 
+
     @Override
     public String toString() {
-        return "model.Person{" +
+        return "Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", address='" + address + '\'' +

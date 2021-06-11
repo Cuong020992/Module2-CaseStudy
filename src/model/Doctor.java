@@ -2,18 +2,20 @@ package model;
 
 public class Doctor extends Person {
     private String positionDoctor;
-    private String levelSalaryDoctor;
+    private int levelSalaryDoctor;
 
     public Doctor() {
     }
 
-    public Doctor(String positionDoctor, String levelSalaryDoctor) {
+
+    public Doctor(String name, int age, String address, String gender, String phone, String positionDoctor, int levelSalaryDoctor) {
+        super(name, age, address, gender, phone);
         this.positionDoctor = positionDoctor;
         this.levelSalaryDoctor = levelSalaryDoctor;
     }
 
-    public Doctor(String name, int age, String address, boolean gender, String phone, String positionDoctor, String levelSalaryDoctor) {
-        super(name, age, address, gender, phone);
+    public Doctor(Person person, String positionDoctor, int levelSalaryDoctor) {
+        super(person.getName(), person.getAge(), person.getAddress(), person.getGender(), person.getPhone());
         this.positionDoctor = positionDoctor;
         this.levelSalaryDoctor = levelSalaryDoctor;
     }
@@ -26,19 +28,24 @@ public class Doctor extends Person {
         this.positionDoctor = positionDoctor;
     }
 
-    public String getLevelSalaryDoctor() {
+    public int getLevelSalaryDoctor() {
         return levelSalaryDoctor;
     }
 
-    public void setLevelSalaryDoctor(String levelSalaryDoctor) {
+    public void setLevelSalaryDoctor(int levelSalaryDoctor) {
         this.levelSalaryDoctor = levelSalaryDoctor;
     }
 
     @Override
     public String toString() {
-        return "model.Doctor{" +
-                "positionDoctor='" + positionDoctor + '\'' +
-                ", levelSalaryDoctor='" + levelSalaryDoctor + '\'' +
+        return "Bác sĩ{" +
+                "Tên='" + super.getName() + '\'' +
+                ", Tuổi=" + super.getAge() +
+                ", Địa chỉ='" + super.getAddress() + '\'' +
+                ", Giới tính=" + super.getGender() +
+                ", Số điện thoại='" + super.getPhone() + '\'' +
+                ", Vị trí='" + positionDoctor + '\'' +
+                ", Cấp bậc lương='" + levelSalaryDoctor + '\'' +
                 '}';
     }
 }
