@@ -2,7 +2,11 @@ package model;
 
 import model.Person;
 
-public class Patient extends Person {
+import java.io.Serializable;
+
+public class Patient extends Person implements Serializable {
+    private static final long serialVersionUID = -6500665823330706018L;
+    private String idPatitent;
     private String diseases;
     private String status;
     private double height;
@@ -15,8 +19,9 @@ public class Patient extends Person {
     }
 
 
-    public Patient(String name, int age, String address, String gender, String phone, String diseases, String status, double height, double weight, int daysInHospital, String typeRoom, int idRoom) {
+    public Patient(String idPatitent, String name, int age, String address, String gender, String phone, String diseases, String status, double height, double weight, int daysInHospital, String typeRoom, int idRoom) {
         super(name, age, address, gender, phone);
+        this.idPatitent = idPatitent;
         this.diseases = diseases;
         this.status = status;
         this.height = height;
@@ -26,8 +31,9 @@ public class Patient extends Person {
         this.idRoom = idRoom;
     }
 
-    public Patient(Person person, String diseases, String status, double height, double weight, int daysInHospital, String typeRoom, int idRoom) {
+    public Patient(Person person, String idPatitent, String diseases, String status, double height, double weight, int daysInHospital, String typeRoom, int idRoom) {
         super(person.getName(), person.getAge(), person.getAddress(), person.getGender(), person.getPhone());
+        this.idPatitent = idPatitent;
         this.diseases = diseases;
         this.status = status;
         this.height = height;
@@ -35,6 +41,14 @@ public class Patient extends Person {
         this.daysInHospital = daysInHospital;
         this.typeRoom = typeRoom;
         this.idRoom = idRoom;
+    }
+
+    public String getIdPatitent() {
+        return idPatitent;
+    }
+
+    public void setIdPatitent(String idPatitent) {
+        this.idPatitent = idPatitent;
     }
 
     public String getDiseases() {
@@ -95,8 +109,9 @@ public class Patient extends Person {
 
     @Override
     public String toString() {
-        return "Bệnh nhân{" +
-                "Tên='" + super.getName() + '\'' +
+        return "Bệnh nhân {" +
+                "Mã bệnh nhân='" + diseases + '\'' +
+                ", Tên='" + super.getName() + '\'' +
                 ", Tuổi=" + super.getAge() +
                 ", Địa chỉ='" + super.getAddress() + '\'' +
                 ", Giới tính=" + super.getGender() +

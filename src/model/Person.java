@@ -1,6 +1,9 @@
 package model;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
+    private static final long serialVersionUID = -6500665823330706018L;
     private String name;
     private int age;
     private String address;
@@ -61,7 +64,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Person {" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", address='" + address + '\'' +
